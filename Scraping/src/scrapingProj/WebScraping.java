@@ -3,7 +3,6 @@ package scrapingProj;
 import java.io.IOException;
 
 import org.jsoup.*;
-import org.jsoup.helper.*;
 import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
@@ -14,12 +13,12 @@ public class WebScraping {
 		Document document = null;
 
 		try {
-			document = Jsoup.connect("https://www.tripadvisor.in/Hotel_Review-g194710-d616414-Reviews-Centro_Vacanze_Pra_delle_Torri-Caorle_Veneto.html#REVIEWS").get();
+			document = Jsoup.connect("https://www.tripadvisor.in/Hotel_Review-g194710-d616414-Reviews-Centro_Vacanze_Pra_delle_Torri-Caorle_Veneto.html").get();
 			
 			//Elements block = document.select("div.hotels-community-tab-common-Card__card--ihfZB hotels-community-tab-common-Card__section--4r93H");
 			Elements overallRating= document.select("div#ABOUT_TAB");
 			Elements overallRatingDisplay=overallRating.select("div.hotels-hotel-review-about-with-photos-Reviews__rating--2X_zZ span");
-			Element totalReviews= document.select("div.hotels-hotel-review-atf-info-parts-ATFInfo__ratingContainer--1WtGm a").first();
+			Element totalReviews= document.select("div.hotels-hotel-review-atf-info-parts-ATFInfo__ratingContainer--1WtGm a").first(); //sabse uparwala
 			
 			System.out.println("\n\t Title: "+(String)document.title());
 			System.out.println("\n\t\t Total reviews: "+totalReviews.text());
